@@ -12,6 +12,10 @@ enum AuthState {
     case authenticated
     case unauthenticated
     case unknown
+    
+    var isLoggedIn: Bool {
+        return self == .authenticated
+    }
 }
 
 @MainActor

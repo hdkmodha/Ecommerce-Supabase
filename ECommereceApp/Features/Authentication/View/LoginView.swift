@@ -45,8 +45,8 @@ struct LoginView: View {
                         .padding(.horizontal, 16)
                         
                 }
-                .disabled(!isFormValid)
-                .opacity(isFormValid ? 1.0 : 0.5)
+//                .disabled(!isFormValid)
+//                .opacity(isFormValid ? 1.0 : 0.5)
                 
                 
                 Spacer()

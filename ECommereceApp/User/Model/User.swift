@@ -24,8 +24,8 @@ struct User: Identifiable, Codable {
         case createdAt = "created_at"
         case profileImageUrl = "profile_image_url"
         case totalSales = "total_sales"
-        case itemsSold = "items_sold"
-        case itemPurchased = "items_purchased"
+        case itemsSold = "items_sold_count"
+        case itemPurchased = "items_purchased_count"
     }
 }
 

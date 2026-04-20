@@ -11,14 +11,12 @@ import Supabase
 final class SupabaseAuthService: NSObject {
     
     static let shared: SupabaseAuthService = .init()
+    private let supabaseProvider: SupabaseProvider = .shared
     
     private let client: SupabaseClient
     
     private override init() {
-        self.client = SupabaseClient(
-            supabaseURL: URL(string: Constants.StringConstants.projectURL)!,
-            supabaseKey: Constants.StringConstants.apiKey
-        )
+        self.client = supabaseProvider.supabaseClient
     }
     
     func signIn(withEmail email: String, password: String) async throws -> String {
@@ -29,6 +27,7 @@ final class SupabaseAuthService: NSObject {
     func signUp(withEmail email: String, andPassword password: String, andUsername username: String) async throws -> String {
         let response = try await self.client.auth.signUp(email: email, password: password)
         let userId = response.user.id.uuidString
+        try await self.createUser(withId: userId, email: email, andUsername: username)
         return userId
     }
     
@@ -39,5 +38,22 @@ final class SupabaseAuthService: NSObject {
     func getCurrentUserSesstion() async throws -> String? {
         let supabaseUser = try await client.auth.session.user
         return supabaseUser.id.uuidString
+    }
+    
+    private func createUser(withId id: String, email: String, andUsername username: String) async throws {
+        let user = User(
+            id: id,
+            email: email,
+            username: username,
+            createdAt: Date(),
+            totalSales: 0,
+            itemsSold: 0,
+            itemPurchased: 0
+        )
+        
+        try await self.client
+            .from(Constants.StringConstants.users)
+            .insert(user)
+            .execute()
     }
 }

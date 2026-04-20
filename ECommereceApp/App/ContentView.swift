@@ -9,21 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @Environment(AuthManager.self) var authManager
+    @Environment(AuthManager.self) private var authManager
+    @Environment(UserManager.self) private var userManager
     
     var body: some View {
         Group {
             switch authManager.authState {
             case .authenticated:
-                Text("Home Screen")
+                ProfileView()
             case .unauthenticated:
                 LoginView()
             case .unknown:
                 ProgressView()
             }
         }
-        .task {
-            await authManager.refreshUser()
+        .task { await authManager.refreshUser() }
+        .task(id: authManager.authState) {
+            guard authManager.authState.isLoggedIn else { return }
+            await userManager.fetchCurrentUser()
         }
     }
 }
