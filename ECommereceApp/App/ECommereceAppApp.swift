@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct ECommereceAppApp: App {
+    
+    @State private var authManager: AuthManager = AuthManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(authManager)
         }
     }
 }
