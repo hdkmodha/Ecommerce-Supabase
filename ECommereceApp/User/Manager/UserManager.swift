@@ -28,4 +28,12 @@ final class UserManager {
         }
     }
     
+    func updateProfileImageURL(_ imageURL: String) async {
+        do {
+            try await userService.updateProfileImageURL(imageURL)
+            self.currentUser?.profileImageUrl = imageURL
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

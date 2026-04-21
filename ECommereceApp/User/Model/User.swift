@@ -12,7 +12,7 @@ struct User: Identifiable, Codable {
     let email: String
     let username: String
     let createdAt: Date
-    let profileImageUrl: String? = nil
+    var profileImageUrl: String? = nil
     let totalSales: Double
     let itemsSold: Int
     let itemPurchased: Int

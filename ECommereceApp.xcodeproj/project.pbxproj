@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C66668F22F97497E0030EF66 /* ImageDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = C66668F12F97497E0030EF66 /* ImageDownloader */; };
+		C66668F52F974C460030EF66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C66668F42F974C460030EF66 /* Kingfisher */; };
 		C66D83522F9674720078FEFC /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = C66D83512F9674720078FEFC /* Auth */; };
 		C66D83542F9674720078FEFC /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = C66D83532F9674720078FEFC /* Supabase */; };
 /* End PBXBuildFile section */
@@ -28,7 +30,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66668F52F974C460030EF66 /* Kingfisher in Frameworks */,
 				C66D83542F9674720078FEFC /* Supabase in Frameworks */,
+				C66668F22F97497E0030EF66 /* ImageDownloader in Frameworks */,
 				C66D83522F9674720078FEFC /* Auth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +86,8 @@
 			packageProductDependencies = (
 				C66D83512F9674720078FEFC /* Auth */,
 				C66D83532F9674720078FEFC /* Supabase */,
+				C66668F12F97497E0030EF66 /* ImageDownloader */,
+				C66668F42F974C460030EF66 /* Kingfisher */,
 			);
 			productName = ECommereceApp;
 			productReference = C61FF14F2F961ABF0060787B /* ECommereceApp.app */;
@@ -113,6 +119,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C66D834C2F96743D0078FEFC /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				C66668F02F97497E0030EF66 /* XCRemoteSwiftPackageReference "ImageDownloader" */,
+				C66668F32F974C460030EF66 /* XCRemoteSwiftPackageReference "kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C61FF1502F961ABF0060787B /* Products */;
@@ -364,6 +372,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C66668F02F97497E0030EF66 /* XCRemoteSwiftPackageReference "ImageDownloader" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hdkmodha/ImageDownloader";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+		C66668F32F974C460030EF66 /* XCRemoteSwiftPackageReference "kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.8.1;
+			};
+		};
 		C66D834C2F96743D0078FEFC /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/supabase/supabase-swift";
@@ -375,6 +399,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C66668F12F97497E0030EF66 /* ImageDownloader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C66668F02F97497E0030EF66 /* XCRemoteSwiftPackageReference "ImageDownloader" */;
+			productName = ImageDownloader;
+		};
+		C66668F42F974C460030EF66 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C66668F32F974C460030EF66 /* XCRemoteSwiftPackageReference "kingfisher" */;
+			productName = Kingfisher;
+		};
 		C66D83512F9674720078FEFC /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C66D834C2F96743D0078FEFC /* XCRemoteSwiftPackageReference "supabase-swift" */;
