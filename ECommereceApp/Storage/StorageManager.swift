@@ -10,7 +10,7 @@ import Supabase
 
 struct StorageManager {
     
-    static let shared: StorageManager = .init()
+//    static let shared: StorageManager = .init()
     
     private let client: SupabaseClient
     private let provider: SupabaseProvider = .shared

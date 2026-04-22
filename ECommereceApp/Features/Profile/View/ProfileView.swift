@@ -80,17 +80,18 @@ private extension ProfileView {
         
         do {
             guard let data = try await selectedItem.loadTransferable(type: Data.self) else { return }
-            guard let uiImage = UIImage(data: data) else { return }
-            guard let imageData = uiImage.jpegData(compressionQuality: 0.5) else { return }
+            guard let uiImage = UIImage(data: data),
+            let imageData = uiImage.jpegData(compressionQuality: 0.5) else { return }
+            
             self.profileImage = Image(uiImage: uiImage)
-            let imageUrl = try await StorageManager.shared.uploadProfilePhoto(for: user, imageData: imageData)
+            
+            let imageUrl = try await StorageManager().uploadProfilePhoto(for: user, imageData: imageData)
+            
             await userManager.updateProfileImageURL(imageUrl)
                     
         } catch {
             print(error.localizedDescription)
         }
-        
-        
     }
     
 }
