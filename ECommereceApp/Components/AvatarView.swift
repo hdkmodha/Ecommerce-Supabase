@@ -48,14 +48,15 @@ struct AvatarView: View {
     
     var body: some View {
         Group {
-            if let profileImage {
-                profileImage
+            if let imageUrl, let url = URL(string: imageUrl) {
+                KFImage(url)
                     .resizable()
                     .scaledToFit()
                     .frame(width: size.dimention, height: size.dimention)
                     .clipShape(.circle)
-            } else if let imageUrl, let url = URL(string: imageUrl) {
-                KFImage(url)
+                
+            } else if let profileImage  {
+                profileImage
                     .resizable()
                     .scaledToFit()
                     .frame(width: size.dimention, height: size.dimention)

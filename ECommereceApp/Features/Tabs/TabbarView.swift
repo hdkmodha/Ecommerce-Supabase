@@ -17,7 +17,7 @@ enum Tabs: Hashable, CaseIterable {
 
 struct TabbarView: View {
     
-    @State private var selectedTab: Tabs = .profile
+    @State private var selectedTab: Tabs = .feed
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -26,7 +26,7 @@ struct TabbarView: View {
             }
             
             Tab("New Item", systemImage: "plus.circle", value: Tabs.newItem) {
-                Text("New Item View")
+                CreateListingView()
             }
             
             Tab("Notification", systemImage: "heart", value: Tabs.notification) {

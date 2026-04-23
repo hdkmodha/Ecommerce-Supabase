@@ -1,3 +1,13 @@
+//
+//  Buyer.swift
+//  ECommereceApp
+//
+//  Created by Hardik Modha on 23/04/26.
+//
+
+
+import Foundation
+
 struct Buyer: Codable, Identifiable, Hashable {
     var id: String
     var name: String
