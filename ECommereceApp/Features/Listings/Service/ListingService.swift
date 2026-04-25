@@ -15,6 +15,7 @@ class ListingService: SupabaseProvider {
     var client: SupabaseClient
     private let manager: SupabaseManager = .shared
     private let productListingTable = Constants.StringConstants.productListing
+    private let sellerTable = Constants.StringConstants.seller
     
     init() {
         self.client = manager.supabaseClient
@@ -25,6 +26,16 @@ class ListingService: SupabaseProvider {
             .from(self.productListingTable)
             .select()
             .eq("status", value: Status.active.rawValue)
+            .execute()
+            .value
+    }
+    
+    func getSeller(forId id: String) async throws -> Seller {
+        return try await self.client
+            .from(self.sellerTable)
+            .select()
+            .eq("id", value: id)
+            .single()
             .execute()
             .value
     }

@@ -55,7 +55,12 @@ struct FeedListingView: View {
                     } else {
                         LazyVGrid(columns: columns, alignment: .center, spacing: 24) {
                             ForEach(viewModel.filterListing, id: \.id) { item in
-                                FeedCell(listing: item)
+                                NavigationLink {
+                                    ListingDetailView(listing: item)
+                                } label: {
+                                    FeedCell(listing: item)
+                                }
+
                             }
                             
                         }
