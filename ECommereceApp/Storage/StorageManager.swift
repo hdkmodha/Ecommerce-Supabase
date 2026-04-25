@@ -8,12 +8,12 @@
 import Foundation
 import Supabase
 
-struct StorageManager {
+struct StorageManager: SupabaseProvider {
     
 //    static let shared: StorageManager = .init()
     
-    private let client: SupabaseClient
-    private let provider: SupabaseProvider = .shared
+    internal var client: SupabaseClient
+    private let provider: SupabaseManager = .shared
     
     private let avatarBucketName = Constants.StringConstants.avatars
     private let listingImagesName = Constants.StringConstants.listingImages

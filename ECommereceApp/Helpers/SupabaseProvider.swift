@@ -8,9 +8,13 @@
 import Foundation
 import Supabase
 
-final class SupabaseProvider: NSObject {
+protocol SupabaseProvider {
+    var client: SupabaseClient { get set }
+}
+
+final class SupabaseManager: NSObject {
     
-    static let shared: SupabaseProvider = .init()
+    static let shared: SupabaseManager = .init()
     
     private let client: SupabaseClient
     

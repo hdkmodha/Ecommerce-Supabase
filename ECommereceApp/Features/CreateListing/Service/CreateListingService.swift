@@ -27,7 +27,7 @@ struct CreateListingService {
     static let shared: CreateListingService = .init()
     
     private let client: SupabaseClient
-    private let provider = SupabaseProvider.shared
+    private let provider = SupabaseManager.shared
     
     private let sellerTable = Constants.StringConstants.seller
     private let productListingTable = Constants.StringConstants.productListing

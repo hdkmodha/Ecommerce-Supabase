@@ -22,7 +22,7 @@ struct TabbarView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             Tab("Feed", systemImage: "house", value: Tabs.feed) {
-                Text("Feed View")
+                FeedListingView()
             }
             
             Tab("New Item", systemImage: "plus.circle", value: Tabs.newItem) {

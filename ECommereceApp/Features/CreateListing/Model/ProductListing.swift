@@ -68,3 +68,71 @@ struct ProductListing: Codable, Identifiable, Hashable {
         case buyerID = "buyer_id"
     }
 }
+
+extension ProductListing {
+    
+    mutating func toggleFavourite() {
+        self.isFavourite.toggle()
+    }
+}
+
+
+extension ProductListing {
+    
+    static func mocks(count: Int = 5) -> [ProductListing] {
+        return  [
+            .init(
+                id: "1",
+                title: "AirPods",
+                description: "Brand new airpods",
+                price: 150,
+                imageUrls: ["air-pods"],
+                category: .electronics,
+                createdAt: Date(),
+                likesCount: 4,
+                status: .active,
+                isFavourite: false,
+                sellerID: ""
+            ),
+            .init(
+                id: "2",
+                title: "iPhone",
+                description: "Brand new iPhone 16 pro",
+                price: 200,
+                imageUrls: ["iphone"],
+                category: .electronics,
+                createdAt: Date(),
+                likesCount: 5,
+                status: .active,
+                isFavourite: false,
+                sellerID: ""
+            ),
+            .init(
+                id: "3",
+                title: "Puma Shoes",
+                description: "Puma Unisex-Adult Speedcat Og Sneaker",
+                price: 300,
+                imageUrls: ["puma-shoes"],
+                category: .sports,
+                createdAt: Date(),
+                likesCount: 3,
+                status: .active,
+                isFavourite: false,
+                sellerID: ""
+            ),
+            .init(
+                id: "4",
+                title: "Macbook Pro",
+                description: "Apple hiegest configureable laptop",
+                price: 300,
+                imageUrls: ["macbook"],
+                category: .electronics,
+                createdAt: Date(),
+                likesCount: 3,
+                status: .active,
+                isFavourite: false,
+                sellerID: ""
+            )
+        ]
+    }
+}

@@ -13,7 +13,7 @@ struct UserService {
     static let service: UserService = .init()
     
     
-    private let supabaseProvider: SupabaseProvider = .shared
+    private let supabaseProvider: SupabaseManager = .shared
     private let client: SupabaseClient
     
     private init() {

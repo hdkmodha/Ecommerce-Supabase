@@ -11,7 +11,7 @@ import Supabase
 final class SupabaseAuthService: NSObject {
     
     static let shared: SupabaseAuthService = .init()
-    private let supabaseProvider: SupabaseProvider = .shared
+    private let supabaseProvider: SupabaseManager = .shared
     
     private let client: SupabaseClient
     
