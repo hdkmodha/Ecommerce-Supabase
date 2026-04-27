@@ -12,11 +12,14 @@ struct FeedCell: View {
     
     var listing: ProductListing
     
+    @Bindable private var viewModel: ListingViewModel
+    
     private let itemWidth: CGFloat = 180
     private let itemHeight: CGFloat = 164
     
-    init(listing: ProductListing) {
+    init(listing: ProductListing, viewModel: ListingViewModel) {
         self.listing = listing
+        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -53,20 +56,19 @@ struct FeedCell: View {
         .shadow(color: .black.opacity(0.2), radius: 4)
         .overlay(alignment: .topTrailing) {
             Button {
-//                listing.toggleFavourite()
+                Task {
+                    await viewModel.deleteListing(for: listing)
+                }
             } label: {
-                Image(systemName: listing.isFavourite ? "heart.fill" : "heart")
+                Image(systemName: "trash.fill")
                     .padding(.all, 5)
-                    .background(in: .circle)
-                    .foregroundStyle(listing.isFavourite ? .red : .black)
+                    .foregroundStyle(.white)
                     .frame(width: 40, height: 40)
-                    
             }
-
         }
     }
 }
 
-#Preview {
-    FeedCell(listing: ProductListing.mocks().first!)
-}
+//#Preview {
+//    FeedCell(listing: ProductListing.mocks().first!)
+//}

@@ -37,8 +37,22 @@ class ListingViewModel {
         }
     }
     
+    func deleteListing(for listing: ProductListing) async {
+        do {
+            try await self.service.deleteListing(for: listing)
+            self.deleteProductListing(for: listing)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     func fileterdListing() {
         filterListing = self.selectedCategory == nil ? productListing : productListing.filter({ $0.category == selectedCategory })
     }
     
+    func deleteProductListing(for listing: ProductListing) {
+        if let index = self.filterListing.firstIndex(of: listing) {
+            self.filterListing.remove(at: index)
+        }
+    }
 }

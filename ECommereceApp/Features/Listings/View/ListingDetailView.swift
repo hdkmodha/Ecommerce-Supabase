@@ -24,12 +24,14 @@ struct ListingDetailView: View {
                         if let url  = URL(string: imageUrl) {
                             KFImage(url)
                                 .resizable()
-                                .frame(maxWidth: .infinity)
+                                .scaledToFill()
+                                .frame(width: 400, height: 400)
+                                .clipShape(.rect)
                         }
                     }
                 }
+                .tabViewStyle(.page(indexDisplayMode: .never))
                 .frame(height: 400)
-                .tabViewStyle(.page)
                 
                 HStack {
                     HStack(spacing: 8) {

@@ -58,7 +58,7 @@ struct FeedListingView: View {
                                 NavigationLink {
                                     ListingDetailView(listing: item)
                                 } label: {
-                                    FeedCell(listing: item)
+                                    FeedCell(listing: item, viewModel: self.viewModel)
                                 }
 
                             }

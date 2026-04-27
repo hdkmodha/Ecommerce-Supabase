@@ -51,7 +51,7 @@ struct AvatarView: View {
             if let imageUrl, let url = URL(string: imageUrl) {
                 KFImage(url)
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .frame(width: size.dimention, height: size.dimention)
                     .clipShape(.circle)
                 

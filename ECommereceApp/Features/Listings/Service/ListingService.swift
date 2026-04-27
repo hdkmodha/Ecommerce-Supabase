@@ -30,6 +30,15 @@ class ListingService: SupabaseProvider {
             .value
     }
     
+    func deleteListing(for listing: ProductListing) async throws {
+        try await self.client
+            .from(self.productListingTable)
+            .delete()
+            .eq("id", value: listing.id)
+            .execute()
+            
+    }
+    
     func getSeller(forId id: String) async throws -> Seller {
         return try await self.client
             .from(self.sellerTable)
